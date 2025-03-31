@@ -7,8 +7,4 @@ public class Resposta
     public string jugador2 { get; set; }
     public List<string> tauler { get; set; }
     
-    public override string ToString()
-    {
-        return $"{string.Join(", ", tauler)}";
-    }
 }

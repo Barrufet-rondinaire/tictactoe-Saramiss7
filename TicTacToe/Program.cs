@@ -113,20 +113,32 @@ class Program
         }
         var guanyador = "";
         var mesgran = 0;
+        bool empat = false;
         foreach (var punt in punts)
         {
+            if (punt.Value == mesgran)
+            {
+                empat = true;
+            }
+            
             if (punt.Value > mesgran)
             {
                 guanyador = punt.Key;
                 mesgran = punt.Value;
+                empat = false;
             }
         }
-
+        
         foreach (var jugador in jugadors)
         {
-            if (jugador.Key == guanyador)
+            if (jugador.Key == guanyador && empat == false)
             {
                 Console.WriteLine($"El guanyador és: {jugador.Key} del país: {jugador.Value}");
+            }
+
+            if (empat)
+            {
+                Console.WriteLine($"Empat");
             }
         }
     }
